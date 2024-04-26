@@ -50,7 +50,7 @@ public class PrimaryKeySnapshotGenerator extends HibernateSnapshotGenerator {
                 pk.setName(pkName);
 
                 pk.setTable(table);
-                for (org.hibernate.mapping.Column hibernateColumn : hibernatePrimaryKey.getColumns()) {
+                for (org.hibernate.mapping.Column hibernateColumn : hibernatePrimaryKey.getOrderingUniqueKey().getColumns()) {
                     pk.getColumns().add(new Column(hibernateColumn.getName()).setRelation(table));
                 }
 
